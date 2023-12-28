@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <title>Bus-Strecken-Viewer von ham-jaky</title>
+        <title> Bus-Linien-Viewer von ham-jaky</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="icon" type="image/x-icon" href="construction.ico">
     </head>
     <body>
-        <h1>Übersicht über die Bus-Linien von MoBus</h1>
-        <h2 style="color:red;">Disclaimer</h2>
-        <p>Moin, dies ist ein Projekt von mir (Jakob, DO2JFR).<br>Die Daten, die hier verwendet werden, stammen von <a href="https://www.openstreetmap.org/">Openstreetmap</a> und wurden mit <a href="https://overpass-turbo.eu/">Overpass</a> abgegriffen. Dies ist <b>KEINE</b> offizielle Website von MoBus oder dem VBB. Die Daten haben damit auch KEINE Garantie auf Richtigkeit.</p>
-        <h2>Aktuell noch im Aufbau</h2>
+        <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+            <h1>Bus-Linien-Viewer (Aktuell im Aufbau)</h1>
+        </div>
+        
+        <div style="overflow:auto">
+            <div class="menu">
+                Hier sollen automatisch die Bus-Linien angezeigt werden
+            </div>
+            
+            <div class="main">
+                <div id="map"></div>
+            </div>
+            
+            <div class="right">
+                <h2>Bus-Linie <span></span></h2>
+                <p>Hier werden später die Informationen zu der ausgewählten Bus-Linie angezeigt werden</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2 style="color:red;">Disclaimer</h2>
+            <p>Moin, dies ist ein Projekt von mir (Jakob, DO2JFR).<br>Die Daten, die hier verwendet werden, stammen von <a href="https://www.openstreetmap.org/">Openstreetmap</a> und wurden mit <a href="https://overpass-turbo.eu/">Overpass</a> abgegriffen. Dies ist <b>KEINE</b> offizielle Website von MoBus oder dem VBB. Die Daten haben damit auch KEINE Garantie auf Richtigkeit.</p>
+            <p>Weitere Infos zu mir: <a href="https://github.com/ham-jaky">Github: ham-jaky</a></p>
+        </div>
+        
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
         <script src="script.js"></script>
     </body>
 </html>
