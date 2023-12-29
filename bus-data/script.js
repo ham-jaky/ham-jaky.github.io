@@ -11,28 +11,42 @@ out tags;`;
 const overpassUrl = 'https://overpass-api.de/api/interpreter';
 const sideMenuElement = "<a href=\"?osmid=OSMID\"><h4>Bus BUSREF (OPERATOR)</h4>BUSNAME</a>";
 
+const urlParams = new URLSearchParams(window.location.search);
+const requestedID = urlParams.get('osmid');
 
-async function getBusMeta() {
-    const busarray = []
+function setSideBarDivContent(content){
+    document.getElementById('side-menu-bus-routes').innerHTML = '';
+    document.getElementById("side-menu-bus-routes").innerHTML = content;
+    
+}
+
+async function createSideMenuFromOverpass() {
     const apiUrl = `${overpassUrl}?data=${encodeURIComponent(query_meta)}`;
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         var div_content = ""
         for (let i of data["elements"]) {
-            busarray.push({"lol": "test", "data": i});
             var tmp = sideMenuElement.replace("OSMID", i["id"]).replace("BUSREF", i["tags"]["ref"]).replace("OPERATOR", i["tags"]["operator"]).replace("BUSNAME", i["tags"]["name"]);
             div_content += tmp;
         }
-        document.getElementById("side-menu-bus-routes").innerHTML = div_content
+        setSideBarDivContent(div_content)
+        sessionStorage.setItem("side-menu-div-content", div_content);
     })
     .catch(error => {
         console.error('Fehler beim Abrufen der Overpass API-Daten:', error);
     });
 }
 
-function createSideMenu() {
-    getBusMeta()
+function createSideMenu(loadFromSessionStorage=true) {
+    const storedDivContent = sessionStorage.getItem("side-menu-div-content");
+    if (storedDivContent && loadFromSessionStorage) {
+        console.debug("Loaded Data from session storage");
+        setSideBarDivContent(storedDivContent);
+    } else {
+        console.debug("Else-block");
+        createSideMenuFromOverpass();
+    };
 }
 
 function createMap() {
@@ -49,6 +63,7 @@ function createMap() {
         attribution: [attr_osm, attr_overpass].join(', ')
     }).addTo(map);
 }
+
 
 createMap();
 createSideMenu();
