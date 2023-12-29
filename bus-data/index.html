@@ -14,8 +14,9 @@
         </div>
         
         <div style="overflow:auto">
-            <div class="menu">
-                Hier sollen automatisch die Bus-Linien angezeigt werden
+            <div class="menu" id="bus-routes">
+                Hier sollen automatisch die Bus-Linien angezeigt werden<br>
+                <a>Test</a>
             </div>
             
             <div class="main">
@@ -23,8 +24,17 @@
             </div>
             
             <div class="right">
-                <h2>Bus-Linie <span></span></h2>
-                <p>Hier werden später die Informationen zu der ausgewählten Bus-Linie angezeigt werden</p>
+                <h2>Bus-Linie <span id="ref">123</span></h2>
+                <span id="name">Bus 123: Musterdorf => Musterstadt</span>
+                <h3>Streckennetz</h3>
+                <span id="network">Jakob fährt Regios</span> (<span id="network_short">JfR</span>)
+                <h3>Betreiber</h3>
+                <span id="operator">Bus zur Unendlichkeit (und nicht weiter)</span>
+                <h3>Start</h3>
+                <span id="from">Musterdorf</span>
+                <h3>Ziel</h3>
+                <span id="to">Musterstadt</span>
+                <p>Hier werden später die Informationen zu der ausgewählten Bus-Linie angezeigt. Alle <!--lustigen--> Platzhalter werden später mit "N/A" ersetzt.</p>
             </div>
         </div>
 

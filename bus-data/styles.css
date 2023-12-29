@@ -9,6 +9,7 @@
 .menu {
     float: left;
     width: 20%;
+    margin-top: 7px;
     text-align: center;
     overflow-y: scroll;
 }
@@ -32,9 +33,13 @@
     background-color: #e5e5e5;
     float: left;
     width: 20%;
-    padding: 15px;
+    padding: 5px;
     margin-top: 7px;
     text-align: center;
+}
+.right h2, .right h3 {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .footer {
