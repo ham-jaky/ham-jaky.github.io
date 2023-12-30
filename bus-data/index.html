@@ -10,15 +10,16 @@
     </head>
     <body>
         <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
-            <h1><a href="?">Bus-Linien-Viewer (Aktuell im Aufbau)</a></h1>
+            <h1><a href="#">Bus-Linien-Viewer (Aktuell im Aufbau)</a></h1>
         </div>
-        
+
         <div style="overflow:auto">
             <div class="menu">
                 <button onclick="createSideMenu(false);"><h2>🔄 Liste Aktualisieren</h2></button>
                 <div class="menulist" id="side-menu-bus-routes">
                     Hier sollen automatisch die Bus-Linien angezeigt werden<br>
-                    <a href="?osmid=OSMID"><h4>Bus 123</h4>Bus 123: Musterdorf => Musterstadt</a>
+                    Sollte dieser Text länger stehen (&gt; 10 Sekunden), aktualisiere die Seite einmal.<br>
+                    Wenn das Problem weiterhin besteht, kontaktiere mich. (siehe unten)
                 </div>
             </div>
             
@@ -27,19 +28,23 @@
             </div>
             
             <div class="right">
-                <h2>Bus-Linie <span id="ref">123</span></h2>
-                <span id="name">Bus 123: Musterdorf => Musterstadt</span>
+                <p>Hier werden die Informationen zu der ausgewählten Bus-Linie angezeigt. Wenn nichts angezeigt wird, klicke auf der linken Seite eine der Bus-Linien an, um dir die Informationen anzuschauen.</p> <!-- muss noch eingebaut werden... :/ -->
+                <!-- Die Kommentare zeigen folgend Beispiel-Werte. -->
+                <h2>Bus-Linie <span id="ref">N/A</span></h2><!-- 123 -->
+                <span id="name">N/A</span><!-- Bus 123: Musterdorf => Musterstadt -->
                 <h3>Streckennetz</h3>
-                <span id="network">Jakob fährt Regios</span> (<span id="network_short">JfR</span>)
+                <span id="network">N/A</span> (<span id="network_short">N/A</span>) <!-- Jakob fährt Regios (JfR) -->
                 <h3>Betreiber</h3>
-                <span id="operator">Bus zur Unendlichkeit (und nicht weiter)</span>
+                <span id="operator">N/A</span> <!-- Bus zur unendlichkeit -->
                 <h3>Start</h3>
-                <span id="from">Musterdorf</span>
+                <span id="from">N/A</span> <!-- Musterdorf -->
                 <h3>Ziel</h3>
-                <span id="to">Musterstadt</span>
+                <span id="to">N/A</span> <!-- Musterstadt -->
                 <h3>OpenStreetMap-ID</h3>
-                <span id="osm-id">420420</span>
-                <p>Hier werden später die Informationen zu der ausgewählten Bus-Linie angezeigt. Alle <!--lustigen--> Platzhalter werden später mit "N/A" ersetzt.</p>
+                <span id="osm-id">N/A</span>
+                <h3>Website</h3>
+                <span id="Website">N/A</span>
+                
             </div>
         </div>
 
