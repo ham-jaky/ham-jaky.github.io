@@ -59,6 +59,20 @@ function createMap() {
     }).addTo(map);
 }
 
+function startSide(){
+    if ("onhashchange" in window) {
+        window.onhashchange = function () {/* execute command*/}
+    } else {
+        var storedHash = window.location.hash;
+        window.setInterval(function () {
+            if (window.location.hash != storedHash) {
+                storedHash = window.location.hash;
+                // execute command
+            }
+        }, 1000);
+    }
+    createMap();
+    createSideMenu();
+}
 
-createMap();
-createSideMenu();
+startSide()
