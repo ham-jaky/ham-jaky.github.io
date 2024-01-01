@@ -171,9 +171,9 @@ async function hashChanged() {
         var platforms = [];
         var platformRequest = "[out:json][timeout:25];(";
         for (let member of routeOSMID["members"]) {
-            if (member["type"] == "way") {
+            if ((member["type"] == "way") && (member["role"] == "")) {
                 polylines.push(L.polyline(member["geometry"], {"weight": 3}));
-            } else if (member["type"] == "node" && member["role"] == "platform") {
+            } else if (member["type"] == "node" && (member["role"].includes("platform") || member["role"].includes("stop"))) {
                 platformRequest += "node(OSMID);".replace("OSMID", member["ref"]);
             }
         }
