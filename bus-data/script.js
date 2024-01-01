@@ -167,12 +167,18 @@ async function hashChanged() {
         map.fitBounds([[bounds["minlat"], bounds["minlon"]], [bounds["maxlat"], bounds["maxlon"]]]);
         setMeta(routeOSMID["id"], routeOSMID["tags"])
 
+        if ("colour" in routeOSMID["tags"]){
+            var properties = {"weight": 3, "color": routeOSMID["tags"]["colour"]};
+        } else {
+            var properties = {"weight": 3};
+        }
+        console.debug(properties);
         var polylines = [];
         var platforms = [];
         var platformRequest = "[out:json][timeout:25];(";
         for (let member of routeOSMID["members"]) {
             if ((member["type"] == "way") && (member["role"] == "")) {
-                polylines.push(L.polyline(member["geometry"], {"weight": 3}));
+                polylines.push(L.polyline(member["geometry"], properties));
             } else if (member["type"] == "node" && (member["role"].includes("platform") || member["role"].includes("stop"))) {
                 platformRequest += "node(OSMID);".replace("OSMID", member["ref"]);
             }
