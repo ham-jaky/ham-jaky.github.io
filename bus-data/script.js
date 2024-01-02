@@ -172,7 +172,6 @@ async function hashChanged() {
         } else {
             var properties = {"weight": 3};
         }
-        console.debug(properties);
         var polylines = [];
         var platforms = [];
         var platformRequest = "[out:json][timeout:25];(";
