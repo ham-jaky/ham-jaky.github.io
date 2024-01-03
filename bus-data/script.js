@@ -114,6 +114,7 @@ function setMeta(osmid, tags) {
     let networkShortSpan = document.getElementById("network_short");
     let operatorSpan = document.getElementById("operator");
     let fromSpan = document.getElementById("from");
+    let viaSpan = document.getElementById("via")
     let toSpan = document.getElementById("to");
 
     let elementTagList = [
@@ -123,6 +124,7 @@ function setMeta(osmid, tags) {
         [networkShortSpan, "network:short"],
         [operatorSpan, "operator"],
         [fromSpan, "from"],
+        [viaSpan, "via"],
         [toSpan, "to"]
     ];
     for (let [spanElement, tag] of elementTagList) {
