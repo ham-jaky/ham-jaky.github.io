@@ -54,9 +54,7 @@ async function createSideMenuFromOverpass() {
     var divContent = "";
 
     var routesDict = {};
-    for (let routeTmp of routes["elements"]) {
-        routesDict[routeTmp["id"]] = routeTmp;
-    }
+    for (let routeTmp of routes["elements"]) {routesDict[routeTmp["id"]] = routeTmp;}
 
     var usedRoutes = [];
     for (let routeMaster of routeMasters["elements"]) {
@@ -154,9 +152,11 @@ async function hashChanged() {
         }
 
         let routesOSMID = await responseOSMID.json();
+        console.debug(routesOSMID, (routesOSMID["elements"].length));
 
-        if (routesOSMID["elements"].lenght > 0) {
+        if (routesOSMID["elements"].length == 0) {
             console.warn("Es wurde eine Fehlerhafte OSM-ID angegeben!");
+            alert("Die im Link angegebene Openstreetmap-ID ist keine Bus-Linie!")
             break ifblockOSMID;
         }
 
@@ -178,7 +178,7 @@ async function hashChanged() {
         for (let member of routeOSMID["members"]) {
             if ((member["type"] == "way") && (member["role"] == "")) {
                 polylines.push(L.polyline(member["geometry"], properties));
-            } else if (member["type"] == "node" && (member["role"].includes("platform") || member["role"].includes("stop"))) {
+            } else if (member["type"] == "node" && (member["role"].includes("stop"))) {
                 platformRequest += "node(OSMID);".replace("OSMID", member["ref"]);
             }
         }
@@ -223,7 +223,7 @@ async function startSide(){
 }
 
 if (!executeNewCode) {
-    alert("Hi, es sieht so aus, als wärst du gerade in einer Entwicklungsversion dieser Seite.\nWenn dies auf der Github.io-Seite auftritt, kannst du mich gerne anschreiben.\nWenn die Seite trotzdem funktioniert, spricht natürlich nichts dagegen, sie zu benutzen. :)\n Viel Spaß.")
+    alert("Hi, es sieht so aus, als wärst du gerade in einer Entwicklungsversion dieser Seite.\nWenn dies auf der Github.io-Seite auftritt, kannst du mich gerne anschreiben.\nWenn die Seite trotzdem funktioniert, spricht natürlich nichts dagegen, sie zu benutzen. :)\nViel Spaß.")
 }
 
 startSide()
