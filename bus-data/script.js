@@ -32,10 +32,6 @@ const queryMaster = `
 [out:json][timeout:25];
 relation["type"="route_master"]["route_master"="bus"]["operator"~"mobus"];
 out;`;
-const queryNodeOSMID = `
-[out:json][timeout:25];
-node(OSMID);
-out;`
 const overpassUrl = 'https://overpass-api.de/api/interpreter';
 
 
